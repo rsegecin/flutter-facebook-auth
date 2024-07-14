@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_example/src/domain/repositories/session_repository.dart';
 import 'package:flutter_facebook_auth_example/src/ui/global/controllers/session_controller.dart';
 import 'package:flutter_facebook_auth_example/src/ui/routes/routes.dart';

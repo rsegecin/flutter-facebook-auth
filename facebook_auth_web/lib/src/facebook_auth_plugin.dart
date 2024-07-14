@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:html';
+import 'package:web/web.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:js/js.dart';
@@ -166,12 +166,13 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// Injects a `script` with a `src` dynamically into the head of the current
   /// document.
   Future<void> _injectSrcScript() async {
-    final script = ScriptElement()
-      ..type = 'text/javascript'
-      ..src = 'https://connect.facebook.net/en_US/sdk.js'
-      ..async = true
-      ..defer = true
-      ..crossOrigin = 'anonymous';
+    HTMLScriptElement script =
+        document.createElement('script') as HTMLScriptElement;
+    script.type = 'text/javascript';
+    script.src = 'https://connect.facebook.net/en_US/sdk.js';
+    script.async = true;
+    script.defer = true;
+    script.crossOrigin = 'anonymous';
     assert(document.head != null);
     document.head!.append(script);
     await script.onLoad.first;
